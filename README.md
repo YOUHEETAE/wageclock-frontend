@@ -1,32 +1,39 @@
-# React + TypeScript + Vite
+# WageClock Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> [WageClock](https://github.com/YOUHEETAE/wage-clock) 백엔드를 위한 프론트엔드
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React_19-61DAFB?style=flat&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 기술 스택
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + TypeScript
+- Vite (빌드 도구)
+- React Router (라우팅)
+- Axios (API 통신)
 
-## Expanding the Oxlint configuration
+## 환경 설정
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+`.env.example`을 복사해서 `.env` 파일 생성 후 서버 IP 입력:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+cp .env.example .env
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+```
+VITE_API_BASE_URL=http://YOUR_SERVER_IP
+```
+
+## 실행 방법
+
+```bash
+npm install
+npm run dev
+```
+
+## 백엔드
+
+- Repo: [wage-clock](https://github.com/YOUHEETAE/wage-clock)
