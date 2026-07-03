@@ -13,7 +13,8 @@ function LoginPage() {
         e.preventDefault();
         const response = await login({ email, password });
         localStorage.setItem("token", response.token);
-        navigate("/");
+        localStorage.setItem("role", response.role);
+        navigate("/employments");
     };
 
     return (
