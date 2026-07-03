@@ -15,3 +15,8 @@ export interface ClockOutResponse {
     clockOut: string;
     earnedAmount: number;
 }
+
+export interface CurrentSessionResponse {
+    sessionId: number;
+    status: "WORKING" | "PAUSED";
+}
