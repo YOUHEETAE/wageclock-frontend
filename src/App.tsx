@@ -6,6 +6,7 @@ import WorkplaceSelectPage from "./features/workplace/WorkplaceSelectPage";
 import CreateWorkplacePage from "./features/workplace/CreateWorkplacePage";
 import CreateEmploymentPage from "./features/employment/CreateEmploymentPage";
 import WorkSessionPage from "./features/worksession/WorkSessionPage";
+import DashboardPage from "./features/dashboard/dashboardPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/workplaces/new" element={<CreateWorkplacePage />} />
       <Route path="/workplaces/:workplaceId/employments/new" element={<CreateEmploymentPage />} />
       <Route path="/work-session" element={<WorkSessionPage />} />
+      <Route path="/dashboard/:workplaceId" element={<DashboardPage />} />
     </Routes>
   );
 }
