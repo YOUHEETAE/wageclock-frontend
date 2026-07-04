@@ -1,11 +1,13 @@
-export interface EmploymentResponse {
-    employmentId: number;
-    hourlyWage: number;
-    employmentName: string;
-}
-
 export interface EmploymentRequest {
     workerEmail: string;
     hourlyWage: number;
-    employmentName: string;
+    workplaceId: number;
+}
+
+export interface EmploymentResponse {
+    employmentId: number;
+    hourlyWage: number;
+    workplaceId: number;
+    workplaceName: string;
+    workplaceAddress: string;
 }

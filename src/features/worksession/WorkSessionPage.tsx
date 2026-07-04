@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { clockIn, clockOut, pause, resume, getCurrentSession } from "./api";
-import type { EmploymentResponse } from "../employment/types";
+import type { WorkplaceResponse } from "../workplace/types";
 import { Button } from "@/components/ui/button";
 
 function WorkSessionPage() {
@@ -9,10 +9,10 @@ function WorkSessionPage() {
     const [status, setStatus] = useState<"WORKING" | "PAUSED" | "COMPLETED" | null>(null);
     const location = useLocation();
     const navigate = useNavigate();
-    const employment: EmploymentResponse = location.state.employment;
+    const workplace: WorkplaceResponse = location.state.workplace;
 
     useEffect(() => {
-        getCurrentSession(employment.employmentId).then((session) => {
+        getCurrentSession(workplace.employmentId!).then((session) => {
             if (session) {
                 setSessionId(session.sessionId);
                 setStatus(session.status);
@@ -21,7 +21,7 @@ function WorkSessionPage() {
     }, []);
 
     const handleClockIn = async () => {
-        const response = await clockIn({ employmentId: employment.employmentId });
+        const response = await clockIn({ employmentId: workplace.employmentId! });
         setSessionId(response.sessionId);
         setStatus("WORKING");
     }
@@ -40,7 +40,7 @@ function WorkSessionPage() {
 
     return (
         <div>
-            <h1>{employment.employmentName}</h1>
+            <h1>{workplace.name}</h1>
             {sessionId === null && (
                 <Button onClick={handleClockIn}>출근</Button>
             )}
@@ -59,7 +59,7 @@ function WorkSessionPage() {
             {status === "COMPLETED" && (
                 <p>퇴근 완료!</p>
             )}
-            <Button onClick={() => navigate("/ewa-request", { state: { employment } })}>선지급 요청</Button>
+            <Button onClick={() => navigate("/ewa-request", { state: { workplace } })}>선지급 요청</Button>
         </div>
     )
 }

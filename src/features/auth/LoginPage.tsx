@@ -14,7 +14,7 @@ function LoginPage() {
         const response = await login({ email, password });
         localStorage.setItem("token", response.token);
         localStorage.setItem("role", response.role);
-        navigate("/employments");
+        navigate("/workplaces");
     };
 
     return (
