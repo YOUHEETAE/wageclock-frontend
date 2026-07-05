@@ -16,7 +16,18 @@ export interface ClockOutResponse {
     earnedAmount: number;
 }
 
+export interface PauseResponse {
+    earnedAmount: number;
+}
+
+export interface ResumeResponse {
+    lastResumeAt: string;
+}
+
 export interface CurrentSessionResponse {
     sessionId: number;
     status: "WORKING" | "PAUSED";
+    hourlyWage: number;
+    earnedAmount: number;
+    lastResumeAt: string | null;
 }
