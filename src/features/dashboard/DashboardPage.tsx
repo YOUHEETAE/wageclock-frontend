@@ -61,6 +61,9 @@ function DashboardPage() {
             <Button onClick={() => navigate(`/workplaces/${workplaceId}/employments/new`)}>
                 근로자 추가
             </Button>
+            <Button onClick={() => navigate(`/workplaces/${workplaceId}/pay-periods`)}>
+                정산 관리
+            </Button>
         </div>
     );
 }

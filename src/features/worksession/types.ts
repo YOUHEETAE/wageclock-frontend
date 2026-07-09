@@ -5,6 +5,7 @@ export interface ClockInRequest {
 export interface ClockInResponse {
     sessionId: number;
     clockIn: string;
+    hourlyWage: number;
 }
 
 export interface ClockOutRequest {
