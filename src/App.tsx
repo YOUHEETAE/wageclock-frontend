@@ -7,6 +7,8 @@ import CreateWorkplacePage from "./features/workplace/CreateWorkplacePage";
 import CreateEmploymentPage from "./features/employment/CreateEmploymentPage";
 import WorkSessionPage from "./features/worksession/WorkSessionPage";
 import DashboardPage from "./features/dashboard/dashboardPage";
+import PayPeriodSummaryPage from "./features/payperiod/payPeriodSummaryPage";
+import PayPeriodListPage from "./features/payperiod/PayPeriodListPage";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
       <Route path="/workplaces/:workplaceId/employments/new" element={<CreateEmploymentPage />} />
       <Route path="/work-session" element={<WorkSessionPage />} />
       <Route path="/dashboard/:workplaceId" element={<DashboardPage />} />
+      <Route path="/pay-period/:employmentId" element={<PayPeriodSummaryPage />} />
+      <Route path="/workplaces/:workplaceId/pay-periods" element={<PayPeriodListPage />} />
     </Routes>
   );
 }

@@ -44,9 +44,14 @@ function WorkSessionPage() {
     }, []);
 
     const handleClockIn = async () => {
-        await clockIn({ employmentId: workplace.employmentId! });
-        const current = await getCurrentSession(workplace.employmentId!);
-        setSession(current);
+        const response = await clockIn({ employmentId: workplace.employmentId! });
+        setSession({
+            sessionId: response.sessionId,
+            status: "WORKING",
+            hourlyWage: response.hourlyWage,
+            earnedAmount: 0,
+            lastResumeAt: response.clockIn,
+        });
     }
     const handleClockOut = async () => {
         await clockOut({ sessionId: session!.sessionId });
@@ -83,7 +88,7 @@ function WorkSessionPage() {
                             <Button onClick={handleResume}>재개</Button>
                         </div>
                     )}
-                    <Button onClick={() => navigate("/ewa-request", { state: { workplace } })}>선지급 요청</Button>
+                    <Button onClick={() => navigate(`/pay-period/${workplace.employmentId}`)}>이번 기간 현황</Button>
                 </div>
             )}
         </div>
