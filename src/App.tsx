@@ -6,9 +6,11 @@ import WorkplaceSelectPage from "./features/workplace/WorkplaceSelectPage";
 import CreateWorkplacePage from "./features/workplace/CreateWorkplacePage";
 import CreateEmploymentPage from "./features/employment/CreateEmploymentPage";
 import WorkSessionPage from "./features/worksession/WorkSessionPage";
-import DashboardPage from "./features/dashboard/dashboardPage";
-import PayPeriodSummaryPage from "./features/payperiod/payPeriodSummaryPage";
+import DashboardPage from "./features/dashboard/DashboardPage";
+import PayPeriodSummaryPage from "./features/payperiod/PayPeriodSummaryPage";
 import PayPeriodListPage from "./features/payperiod/PayPeriodListPage";
+import EwaRequestPage from "./features/ewaRequest/EwaRequestPage";
+import EwaPendingPage from "./features/ewaRequest/EwaPendingPage";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Route path="/dashboard/:workplaceId" element={<DashboardPage />} />
       <Route path="/pay-period/:employmentId" element={<PayPeriodSummaryPage />} />
       <Route path="/workplaces/:workplaceId/pay-periods" element={<PayPeriodListPage />} />
+      <Route path="/ewa-request" element={<EwaRequestPage />} />
+      <Route path="/ewa-pending" element={<EwaPendingPage />} />
     </Routes>
   );
 }
