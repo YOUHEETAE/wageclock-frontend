@@ -32,7 +32,7 @@ function PayPeriodListPage() {
                         <p>총 번 돈: ₩{worker.totalEarnedAmount.toLocaleString()}</p>
                         <p>선지급액: ₩{worker.totalEwaAmount.toLocaleString()}</p>
                         <p>선지급 가능: ₩{worker.remainingEwaLimit.toLocaleString()}</p>
-                        {worker.workSessionStatus === null && (
+                        {worker.activeSessionStatus === null && (
                             <input
                                 type="checkbox"
                                 checked={selectedIds.includes(worker.employmentId)}
