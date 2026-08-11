@@ -5,5 +5,5 @@ export interface PayPeriodSummaryResponse {
     totalEarnedAmount: number;
     totalEwaAmount: number;
     remainingEwaLimit: number;
-    workSessionStatus: "WORKING" | "PAUSED" | null;
+    activeSessionStatus: "WORKING" | "PAUSED" | null;
 }

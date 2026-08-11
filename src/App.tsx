@@ -11,6 +11,7 @@ import PayPeriodSummaryPage from "./features/payperiod/PayPeriodSummaryPage";
 import PayPeriodListPage from "./features/payperiod/PayPeriodListPage";
 import EwaRequestPage from "./features/ewaRequest/EwaRequestPage";
 import EwaPendingPage from "./features/ewaRequest/EwaPendingPage";
+import SettlementPage from "./features/settlement/SettlementPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Route path="/workplaces/:workplaceId/pay-periods" element={<PayPeriodListPage />} />
       <Route path="/ewa-request" element={<EwaRequestPage />} />
       <Route path="/ewa-pending" element={<EwaPendingPage />} />
+      <Route path="/settlement" element={<SettlementPage />} />
     </Routes>
   );
 }
