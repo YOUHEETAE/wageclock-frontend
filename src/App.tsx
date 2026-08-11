@@ -12,6 +12,7 @@ import PayPeriodListPage from "./features/payperiod/PayPeriodListPage";
 import EwaRequestPage from "./features/ewaRequest/EwaRequestPage";
 import EwaPendingPage from "./features/ewaRequest/EwaPendingPage";
 import SettlementPage from "./features/settlement/SettlementPage";
+import HistoryPage from "./features/history/HistoryPage";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path="/ewa-request" element={<EwaRequestPage />} />
       <Route path="/ewa-pending" element={<EwaPendingPage />} />
       <Route path="/settlement" element={<SettlementPage />} />
+      <Route path="/history/:employmentId" element={<HistoryPage />} />
     </Routes>
   );
 }

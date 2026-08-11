@@ -88,9 +88,9 @@ function WorkSessionPage() {
                             <Button onClick={handleResume}>재개</Button>
                         </div>
                     )}
-                    <Button onClick={() => navigate(`/pay-period/${workplace.employmentId}`)}>이번 기간 현황</Button>
                 </div>
             )}
+            <Button onClick={() => navigate(`/pay-period/${workplace.employmentId}`)}>이번 기간 현황</Button>
         </div>
     )
 }
