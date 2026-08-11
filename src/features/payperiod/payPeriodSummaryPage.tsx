@@ -37,6 +37,7 @@ function PayPeriodSummaryPage() {
                         remainingEwaLimit: summary?.remainingEwaLimit
                     }
                 })}>선지급 요청</Button>
+                <Button onClick={() => navigate(`/history/${employmentId}`)}>이력 보기</Button>
             </div>
             <div>
                 <p>내 선지급 현황</p>

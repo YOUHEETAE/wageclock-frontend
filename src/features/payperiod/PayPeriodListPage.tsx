@@ -32,6 +32,7 @@ function PayPeriodListPage() {
                         <p>총 번 돈: ₩{worker.totalEarnedAmount.toLocaleString()}</p>
                         <p>선지급액: ₩{worker.totalEwaAmount.toLocaleString()}</p>
                         <p>선지급 가능: ₩{worker.remainingEwaLimit.toLocaleString()}</p>
+                        <Button onClick={() => navigate(`/history/${worker.employmentId}`)}>이력 보기</Button>
                         {worker.activeSessionStatus === null && (
                             <input
                                 type="checkbox"
