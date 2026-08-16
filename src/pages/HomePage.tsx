@@ -1,9 +1,19 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 function HomePage() {
-  return (
-    <div>
-      <h1>WageClock</h1>
-    </div>
-  );
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            navigate("/workplaces");
+        } else {
+            navigate("/login");
+        }
+    }, []);
+
+    return null;
 }
 
 export default HomePage;

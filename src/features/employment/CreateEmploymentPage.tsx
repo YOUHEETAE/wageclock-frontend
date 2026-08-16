@@ -17,24 +17,41 @@ function CreateEmploymentPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <Input
-                type="email"
-                placeholder="이메일"
-                value={workerEmail}
-                onChange={(e) => setWorkerEmail(e.target.value)}
-            />
+        <div className="max-w-md mx-auto">
+            <h1 className="text-2xl font-bold text-[#191c1d] mb-2">근로자 추가</h1>
+            <p className="text-sm text-[#737687] mb-6">근로자 이메일과 시급을 입력하세요.</p>
 
-            <Input
-                type="number"
-                placeholder="시급"
-                value={hourlyWage}
-                onChange={(e) => setHourlyWage(e.target.value)}
-            />
-
-            <Button type="submit">고용관계 등록</Button>
-        </form>
-    )
+            <div className="bg-white rounded-2xl border border-[#edeeef] shadow-[0_4px_20px_rgba(0,78,203,0.06)] p-6">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-1.5">
+                        <label className="text-sm font-medium text-[#191c1d]">근로자 이메일</label>
+                        <Input
+                            type="email"
+                            placeholder="worker@example.com"
+                            value={workerEmail}
+                            onChange={(e) => setWorkerEmail(e.target.value)}
+                        />
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                        <label className="text-sm font-medium text-[#191c1d]">시급</label>
+                        <div className="relative">
+                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm font-medium text-[#737687]">₩</span>
+                            <Input
+                                type="number"
+                                placeholder="10,030"
+                                value={hourlyWage}
+                                onChange={(e) => setHourlyWage(e.target.value)}
+                                className="pl-7"
+                            />
+                        </div>
+                    </div>
+                    <Button type="submit" className="w-full mt-2 h-12 text-base font-semibold">
+                        고용관계 등록
+                    </Button>
+                </form>
+            </div>
+        </div>
+    );
 }
 
 export default CreateEmploymentPage;

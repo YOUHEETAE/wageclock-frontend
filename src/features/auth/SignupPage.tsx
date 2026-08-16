@@ -14,59 +14,76 @@ function SignupPage() {
     const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
         e.preventDefault();
         await signup({ name, email, password, role });
-        navigate("/");
+        navigate("/login");
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <Input
-                type="text"
-                placeholder="이름"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
-
-            <Input
-                type="email"
-                placeholder="이메일"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-
-            <Input
-                type="password"
-                placeholder="비밀번호"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-
-            <label>
-                <input
-                    type="radio"
-                    name="role"
-                    value="WORKER"
-                    checked={role === "WORKER"}
-                    onChange={() => setRole("WORKER")}
-                />
-                직원
-            </label>
-
-            <label>
-                <input
-                    type="radio"
-                    name="role"
-                    value="EMPLOYER"
-                    checked={role === "EMPLOYER"}
-                    onChange={() => setRole("EMPLOYER")}
-                />
-                고용주
-            </label>
-
-            <Button type="submit">회원가입</Button>
-
-
-        </form>
-    )
+        <div className="min-h-screen flex items-center justify-center bg-[#f8f9fa]">
+            <div className="w-full max-w-sm px-4">
+                <div className="text-center mb-8">
+                    <h1 className="text-[28px] font-bold text-[#004ecb]">WageClock</h1>
+                    <p className="text-sm text-[#737687] mt-1">회원가입</p>
+                </div>
+                <div className="bg-white rounded-2xl border border-[#edeeef] shadow-[0_4px_20px_rgba(0,78,203,0.06)] p-8">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-1.5">
+                            <label className="text-sm font-medium text-[#191c1d]">이름</label>
+                            <Input
+                                type="text"
+                                placeholder="홍길동"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                            <label className="text-sm font-medium text-[#191c1d]">이메일</label>
+                            <Input
+                                type="email"
+                                placeholder="name@example.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                            <label className="text-sm font-medium text-[#191c1d]">비밀번호</label>
+                            <Input
+                                type="password"
+                                placeholder="••••••••"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                            <label className="text-sm font-medium text-[#191c1d]">역할</label>
+                            <div className="grid grid-cols-2 gap-2">
+                                {(["WORKER", "EMPLOYER"] as const).map((r) => (
+                                    <button
+                                        key={r}
+                                        type="button"
+                                        onClick={() => setRole(r)}
+                                        className={`py-2.5 rounded-xl text-sm font-medium border transition-colors
+                                            ${role === r
+                                                ? "bg-[#004ecb] text-white border-[#004ecb]"
+                                                : "bg-white text-[#737687] border-[#edeeef] hover:border-[#004ecb]"
+                                            }`}
+                                    >
+                                        {r === "WORKER" ? "근로자" : "고용주"}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        <Button type="submit" className="w-full mt-2">회원가입</Button>
+                    </form>
+                    <p className="text-center text-sm text-[#737687] mt-6">
+                        이미 계정이 있으신가요?{" "}
+                        <button onClick={() => navigate("/login")} className="text-[#004ecb] font-medium hover:underline">
+                            로그인
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default SignupPage;
